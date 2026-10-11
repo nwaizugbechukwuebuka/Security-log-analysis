@@ -3,8 +3,11 @@
 **A Python-based cybersecurity project for detecting suspicious authentication activity and investigating potential supplier payment fraud.**
 
 **Author:** Tobiloba Nwaizugbe
+
 **Project Category:** Cybersecurity | Security Engineering | Security Operations
+
 **Technologies:** Python, Pandas, Pytest, Git
+
 **Status:** Educational proof of concept
 
 ---
