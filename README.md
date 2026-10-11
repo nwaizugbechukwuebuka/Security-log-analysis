@@ -1,154 +1,162 @@
 # Security Log Analysis and Incident Timeline
 
-**A Python-based cybersecurity project for detecting suspicious authentication activity and investigating potential supplier payment fraud.**
+**A Python-based cybersecurity project for identifying suspicious authentication activity and investigating potential supplier payment fraud.**
 
-**Author:** Tobiloba Nwaizugbe
-
-**Project Category:** Cybersecurity | Security Engineering | Security Operations
-
-**Technologies:** Python, Pandas, Pytest, Git
-
-**Status:** Educational proof of concept
+|                  |                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------- |
+| **Author**       | Tobiloba Nwaizugbe                                                              |
+| **Category**     | Cybersecurity, Security Operations, Security Engineering                        |
+| **Technologies** | Python, Pandas, Pytest, Git                                                     |
+| **Project Type** | Educational Proof of Concept                                                    |
+| **Repository**   | [View on GitHub](https://github.com/nwaizugbechukwuebuka/Security-log-analysis) |
 
 ---
 
-## Project Overview
+## 1. Project Overview
 
-How can a security analyst identify suspicious account activity before it leads to financial loss?
+How can an organization identify suspicious account activity before it leads to financial loss?
 
-This project demonstrates how Python can be used to analyze security logs, identify unusual authentication patterns, and reconstruct a potential security incident.
+This project demonstrates how Python can help security analysts investigate unusual authentication patterns and identify potentially unauthorized changes to sensitive business information.
 
-The simulated scenario involves an employee account experiencing repeated failed login attempts, followed by a successful login, supplier-record access, and a change to sensitive banking information.
+Using a simulated supplier payment fraud scenario, the application processes security logs, analyzes authentication events, calculates investigation metrics, and reconstructs activity into a chronological incident timeline.
 
-Using Python and Pandas, the project processes security events, calculates investigation metrics, identifies suspicious sequences, and produces a chronological incident timeline.
+The objective is to demonstrate how structured security data can support incident investigation, risk identification, and evidence-based decision-making.
 
-The goal is to demonstrate how structured security data can support **incident investigation, risk identification, and evidence-based security decisions**.
+## 2. Business Problem
 
-## Business Problem
+Unauthorized modifications to supplier banking information can expose organizations to payment diversion and financial fraud.
 
-Unauthorized changes to supplier banking information can expose an organization to payment diversion and financial fraud.
+Security analysts need to recognize suspicious activity, understand the sequence of events, and determine whether sensitive actions were legitimate.
 
-Security teams need to identify warning signs, understand the sequence of events, and determine whether sensitive actions were authorized.
+This project explores how automated log analysis can help address these challenges by:
 
-This project addresses that challenge by demonstrating how an analyst can:
+* Identifying repeated failed login attempts.
+* Examining successful authentication following failed attempts.
+* Correlating authentication activity with sensitive supplier-record operations.
+* Measuring the time between suspicious authentication and subsequent activity.
+* Reconstructing events into a chronological investigation timeline.
+* Producing findings that guide further investigation.
 
-* Identify repeated failed login attempts.
-* Detect successful authentication following repeated failures.
-* Correlate suspicious login activity with sensitive supplier-record changes.
-* Measure the time between authentication and sensitive activity.
-* Reconstruct events into a chronological timeline.
-* Generate findings to guide further investigation.
+**Business value:** The analysis demonstrates how security teams can organize technical evidence to investigate potentially unauthorized activity and prioritize their response.
 
-The analysis identifies indicators that warrant investigation; it does not automatically establish that an account has been compromised.
+## 3. Key Findings
 
-## Key Findings
+The simulated dataset contains six security events involving authentication and supplier-record activity.
 
-The analysis of the six-event sample dataset produces the following results:
+The reported analysis produces the following results:
 
-| Investigation Metric                                        |     Result |
-| ----------------------------------------------------------- | ---------: |
-| Security events analyzed                                    |          6 |
-| Total login attempts                                        |          4 |
-| Failed login attempts                                       |          2 |
-| Successful login attempts                                   |          2 |
-| Failed-login rate                                           |        50% |
-| Distinct source IP addresses                                |          2 |
-| Successful login following repeated failures                |   Detected |
-| Sensitive banking-detail modifications                      |          1 |
-| Time between suspicious successful login and banking change |  6 minutes |
-| Observed activity window                                    | 10 minutes |
+| Investigation Metric                                            |     Result |
+| --------------------------------------------------------------- | ---------: |
+| Security events analyzed                                        |          6 |
+| Total login attempts                                            |          4 |
+| Failed login attempts                                           |          2 |
+| Successful login attempts                                       |          2 |
+| Failed-login rate                                               |        50% |
+| Distinct source IP addresses                                    |          2 |
+| Sensitive banking-detail modifications                          |          1 |
+| Time from the suspicious successful login to the banking change |  6 minutes |
+| Observed activity window                                        | 10 minutes |
 
-### What These Results Mean
+*These figures describe the sample scenario and should be verified against the generated analysis output.*
 
-Three observations are particularly important:
+### What the Findings Mean
 
-1. **Repeated authentication failures:** Two failed login attempts from the same source IP were followed by a successful login.
-2. **Sensitive information accessed:** The account viewed a supplier record three minutes after the successful login.
-3. **Banking information modified:** The account modified supplier banking details six minutes after the successful login.
+Three observations warrant further investigation:
 
-Together, these observations form a suspicious sequence that a security analyst should investigate further.
+**1. Unusual authentication sequence**
 
-## Technical Implementation
+Two failed login attempts from the same source IP were followed by a successful login. This pattern may warrant investigation to determine whether the authentication activity was legitimate.
 
-### 1. Security Log Processing
+**2. Access to supplier information**
 
-The project uses Python and Pandas to load, validate, organize, and analyze structured security events.
+The account viewed a supplier record three minutes after the successful login, establishing a temporal relationship between authentication and sensitive business activity.
 
-The analysis processes fields such as:
+**3. Modification of banking information**
 
-* Timestamp
-* User
-* Event
-* Source IP
-* Result
+The account modified supplier banking details six minutes after the successful login. This action is particularly relevant because unauthorized banking changes can create a risk of payment diversion.
 
-### 2. Authentication Analysis
+**Investigation conclusion:** The observed sequence warrants further review, but the available evidence does not independently establish account compromise or confirmed financial fraud.
 
-The project examines authentication events to identify repeated failures and successful logins that follow suspicious patterns.
+## 4. Technical Implementation
 
-This demonstrates foundational security monitoring techniques used to investigate potentially compromised accounts.
+### Security Log Processing
 
-### 3. Event Correlation
+Python and Pandas are used to load, organize, and analyze structured security events.
 
-The analysis correlates events using available information, including user accounts, source IP addresses, and timestamps.
+The analysis works with fields including timestamps, user accounts, event types, source IP addresses, and authentication results.
 
-It examines the relationship between authentication activity and subsequent sensitive supplier-record operations.
+### Authentication Analysis
 
-### 4. Incident Timeline Reconstruction
+The application examines login attempts to identify repeated authentication failures and successful logins that follow suspicious patterns.
 
-Security events are ordered chronologically to provide a clear sequence of activity.
+This demonstrates foundational security monitoring and authentication investigation techniques.
 
-The resulting timeline helps an investigator understand what happened, when it happened, and which events require additional scrutiny.
+### Event Correlation
 
-### 5. Investigation Metrics
+The analysis examines the chronological relationship between authentication events and subsequent supplier-record operations.
 
-The project calculates the observed activity window using the earliest and latest timestamps.
+Available event attributes, including user accounts, source IP addresses, and timestamps, help organize activity for investigation.
 
-It also reports investigation metrics such as the number of records analyzed and the elapsed time between relevant events.
+### Incident Timeline Reconstruction
 
-### 6. Automated Testing
+Events are arranged chronologically to provide a structured account of observed activity.
 
-Pytest is used to verify the analysis logic and important expected behaviours.
+The resulting timeline helps an analyst understand what happened, when it happened, and which events require additional scrutiny.
 
-Automated tests help ensure that the application processes sample logs consistently and handles relevant validation scenarios.
+### Investigation Metrics
 
-## Sample Incident Timeline
+The application calculates relevant investigation metrics, including the number of events analyzed, authentication statistics, the overall activity window, and elapsed time between selected events.
 
-| Time  | Event                  | Security Significance                              |
-| ----- | ---------------------- | -------------------------------------------------- |
-| 09:00 | Successful login       | Initial authentication from `10.0.0.12`.           |
-| 09:02 | Failed login           | First failed attempt from `203.0.113.25`.          |
-| 09:03 | Failed login           | Second failed attempt from the same source IP.     |
-| 09:04 | Successful login       | Authentication succeeds after repeated failures.   |
-| 09:07 | Supplier record viewed | Supplier information is accessed.                  |
-| 09:10 | Bank details modified  | Sensitive supplier banking information is changed. |
+These measurements help turn raw log records into information that is easier to interpret and communicate.
 
-**Investigation outcome:** The sequence warrants further review to establish whether the successful login and banking modification were legitimate.
+### Automated Testing
 
-## Recommended Investigation Actions
+Pytest is used to validate the analysis logic and expected application behaviour.
+
+Automated tests support consistency and help identify defects when the implementation changes.
+
+## 5. Sample Incident Timeline
+
+The following timeline illustrates the simulated scenario.
+
+| Time  | Event                    | Investigation Significance                           |
+| ----- | ------------------------ | ---------------------------------------------------- |
+| 09:00 | Successful login         | Initial authentication from `10.0.0.12`.             |
+| 09:02 | Failed login             | First failed attempt from `203.0.113.25`.            |
+| 09:03 | Failed login             | Second failed attempt from the same source IP.       |
+| 09:04 | Successful login         | Authentication succeeds following repeated failures. |
+| 09:07 | Supplier record viewed   | Supplier information is accessed.                    |
+| 09:10 | Banking details modified | Sensitive supplier banking information is changed.   |
+
+The IP addresses and events are illustrative and form part of a simulated dataset.
+
+The timeline highlights the importance of correlating authentication activity with subsequent sensitive operations rather than investigating each event in isolation.
+
+## 6. Recommended Investigation Actions
 
 Based on the simulated findings, a security analyst could:
 
 1. Verify whether the successful login was authorized.
-2. Review authentication records and multifactor authentication results.
-3. Confirm whether the supplier banking change was approved.
-4. Compare the original and modified banking details.
+2. Review authentication records and available multifactor authentication results.
+3. Confirm whether the supplier banking change followed the organization's approval process.
+4. Compare the original and modified banking information.
 5. Review related payment creation, approval, and execution records.
-6. Preserve relevant logs and audit evidence.
+6. Preserve relevant security logs and audit evidence.
 7. Follow the organization's incident-response procedures if unauthorized activity is confirmed or actively suspected.
 
-These recommendations demonstrate how automated log analysis can support, rather than replace, an analyst's investigation.
+These recommendations illustrate how automated analysis can support an investigation without replacing analyst judgment.
 
-## Technology Stack
+## 7. Technology Stack
 
-| Technology     | Application                                              |
-| -------------- | -------------------------------------------------------- |
-| Python         | Analysis logic and automation                            |
-| Pandas         | Log processing, data aggregation, and timestamp analysis |
-| Pytest         | Automated testing                                        |
-| Git and GitHub | Version control and project presentation                 |
+| Technology | Purpose                                              |
+| ---------- | ---------------------------------------------------- |
+| Python     | Security analysis logic and automation               |
+| Pandas     | Data processing, aggregation, and timestamp analysis |
+| Pytest     | Automated testing and validation                     |
+| Git        | Source control and change tracking                   |
+| GitHub     | Code hosting and project documentation               |
 
-## Project Structure
+## 8. Project Structure
 
 ```text
 Security-log-analysis/
@@ -165,116 +173,133 @@ Security-log-analysis/
 └── .gitignore
 ```
 
-* `data/` — Contains the simulated security logs.
-* `src/` — Contains the log analysis and detection logic.
-* `tests/` — Contains automated tests.
-* `reports/` — Stores the generated incident timeline.
-* `requirements.txt` — Defines the Python dependencies.
+### Directory Overview
 
-## How to Run the Project
+* `data/` — Contains the simulated security log dataset.
+* `reports/` — Stores the generated incident timeline.
+* `src/` — Contains the log processing and analysis logic.
+* `tests/` — Contains automated tests.
+* `requirements.txt` — Lists the Python dependencies.
+* `.gitignore` — Specifies files and directories excluded from version control.
+
+## 9. Getting Started
 
 ### Prerequisites
 
-* Python 3.10 or later
-* pip
+* Python 3.10 or later.
+* pip.
+* Git.
 
-### 1. Clone the Repository
+### Step 1: Clone the Repository
 
-Replace the placeholder with the actual GitHub repository URL.
+Open Windows PowerShell and run:
 
 ```powershell
-git clone <your-repository-url>
+git clone https://github.com/nwaizugbechukwuebuka/Security-log-analysis.git
+
 cd Security-log-analysis
 ```
 
-### 2. Create a Virtual Environment
+### Step 2: Create a Virtual Environment
 
 ```powershell
 python -m venv .venv
 ```
 
-Activate it in Windows PowerShell:
+Activate the environment:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 3. Install Dependencies
+### Step 3: Install Dependencies
 
 ```powershell
 python -m pip install -r requirements.txt
 ```
 
-### 4. Run the Analysis
+### Step 4: Run the Analysis
 
 ```powershell
 python -m src.log_analysis
 ```
 
-The application processes the sample logs, calculates investigation metrics, identifies relevant suspicious patterns, and generates the incident timeline.
+The application should process the sample dataset, calculate investigation metrics, and generate the incident timeline.
 
-### 5. Run the Tests
+The generated output depends on the implementation and the contents of the dataset.
+
+### Step 5: Run the Automated Tests
 
 ```powershell
-python -m pytest -q
+python -m pytest -v
 ```
 
-## Skills Demonstrated
+This command runs the project's automated test suite and displays the results.
 
-**Cybersecurity**
+## 10. Skills Demonstrated
 
-* Security log analysis
-* Authentication anomaly detection
-* Incident investigation fundamentals
-* Security event correlation
-* Sensitive-record activity analysis
-* Incident timeline reconstruction
+### Cybersecurity and Security Operations
 
-**Data Analysis and Programming**
+* Security log analysis.
+* Authentication anomaly investigation.
+* Security event correlation.
+* Incident timeline reconstruction.
+* Sensitive-record activity analysis.
+* Incident-response fundamentals.
 
-* Python programming
-* Pandas data processing
-* Timestamp calculations
-* Data validation and aggregation
-* Automated testing with Pytest
+### Programming and Data Analysis
 
-**Professional Skills**
+* Python programming.
+* Pandas data processing.
+* Timestamp calculations.
+* Data aggregation and validation.
+* Automated testing with Pytest.
+* Reproducible analysis workflows.
 
-* Evidence-based problem-solving
-* Structured incident documentation
-* Risk identification
-* Analytical thinking
-* Translating technical findings into actionable investigation steps
+### Professional Capabilities
 
-## Limitations and Future Development
+* Analytical thinking and problem-solving.
+* Evidence-based decision-making.
+* Structured technical documentation.
+* Risk identification.
+* Translating technical observations into actionable recommendations.
 
-This project uses a small, simulated dataset and is intended for learning and portfolio demonstration.
+## 11. Limitations and Future Development
 
-The current analysis does not independently verify whether an account has been compromised. It also lacks session identifiers, device information, multifactor authentication outcomes, and a historical baseline of normal user behaviour.
+This project uses a small, simulated dataset and is intended for educational and portfolio purposes.
+
+The current scenario does not establish whether the account was compromised or whether the banking change was fraudulent.
+
+Additional evidence would be required to establish authorization, user intent, and the relationship between authentication and sensitive activity.
 
 Potential future enhancements include:
 
-* Support for additional authentication log formats.
-* Integration with Windows and Linux security logs.
+* Support for Windows and Linux security log formats.
 * Configurable detection thresholds and risk scoring.
-* More advanced event correlation using session and device identifiers.
-* Integration with a SIEM or security incident management workflow.
-* Real-time log ingestion and alerting.
-* Expanded automated tests and investigation reporting.
+* More advanced correlation using session identifiers and device information.
+* Integration with a Security Information and Event Management (SIEM) platform.
+* Automated alerting and investigation reporting.
+* Expanded test coverage for missing data, duplicate events, and invalid timestamps.
+* Integration with incident-response workflows.
 
-These improvements would help move the project towards a more comprehensive security monitoring and incident investigation solution.
+These enhancements could extend the project into a more comprehensive security monitoring and investigation solution.
 
-## Conclusion
+## 12. Conclusion
 
-The **Security Log Analysis and Incident Timeline** project demonstrates how Python-based analysis can help identify suspicious authentication patterns, correlate security events with sensitive business operations, and organize findings into an actionable investigation timeline.
+The **Security Log Analysis and Incident Timeline** project demonstrates how Python-based analysis can help identify suspicious authentication patterns, correlate security events with sensitive business operations, and organize findings into an investigation timeline.
 
-By combining security concepts with data analysis and automated testing, the project provides a practical demonstration of foundational skills relevant to cybersecurity, security operations, and junior security engineering roles.
+By combining cybersecurity concepts, data analysis, and automated testing, the project provides practical evidence of skills relevant to entry-level cybersecurity, Security Operations Centre (SOC), and junior security engineering roles.
 
-**Repository focus:** Security log analysis, authentication monitoring, incident investigation, and Python automation.
+The project emphasizes an important principle of security investigation: **suspicious activity should be supported by evidence and investigated before conclusions are drawn.**
 
+---
+
+## Connect
 
 [![GitHub](https://img.shields.io/badge/GitHub-Project-181717.svg?style=flat\&logo=github)](https://github.com/nwaizugbechukwuebuka/AI-Factory-Operations-Agent)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5.svg?style=flat\&logo=linkedin)](https://www.linkedin.com/in/chukwuebuka-tobiloba-nwaizugbe/)
-[![Discord](https://img.shields.io/badge/Join%20us%20on-Discord-5865F2?logo=discord\&logoColor=white\&style=for-the-badge)](https://discord.gg/deepworksociety)
 
-</div>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5.svg?style=flat\&logo=linkedin)](https://www.linkedin.com/in/chukwuebuka-tobiloba-nwaizugbe/)
+
+**Author:** Tobiloba Nwaizugbe
+
+
