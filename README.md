@@ -8,7 +8,7 @@
 | **Category**     | Cybersecurity, Security Operations, Security Engineering                        |
 | **Technologies** | Python, Pandas, Pytest, Git                                                     |
 | **Project Type** | Educational Proof of Concept                                                    |
-| **Repository**   | [![GitHub](https://img.shields.io/badge/GitHub-Project-181717.svg?style=flat\&logo=github)](https://github.com/nwaizugbechukwuebuka/AI-Factory-Operations-Agent) |
+| **Repository**   | [![GitHub](https://img.shields.io/badge/GitHub-Project-181717.svg?style=flat\&logo=github)](https://github.com/nwaizugbechukwuebuka/Security-log-analysis) |
 
 ---
 
@@ -296,7 +296,7 @@ The project emphasizes an important principle of security investigation: **suspi
 
 ## Connect
 
-[![GitHub](https://img.shields.io/badge/GitHub-Project-181717.svg?style=flat\&logo=github)](https://github.com/nwaizugbechukwuebuka/AI-Factory-Operations-Agent)
+[![GitHub](https://img.shields.io/badge/GitHub-Project-181717.svg?style=flat\&logo=github)](https://github.com/nwaizugbechukwuebuka/Security-log-analysis)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5.svg?style=flat\&logo=linkedin)](https://www.linkedin.com/in/chukwuebuka-tobiloba-nwaizugbe/)
 
