@@ -8,7 +8,7 @@
 | **Category**     | Cybersecurity, Security Operations, Security Engineering                        |
 | **Technologies** | Python, Pandas, Pytest, Git                                                     |
 | **Project Type** | Educational Proof of Concept                                                    |
-| **Repository**   | [View on GitHub](https://github.com/nwaizugbechukwuebuka/Security-log-analysis) |
+| **Repository**   | [![GitHub](https://img.shields.io/badge/GitHub-Project-181717.svg?style=flat\&logo=github)](https://github.com/nwaizugbechukwuebuka/AI-Factory-Operations-Agent) |
 
 ---
 
