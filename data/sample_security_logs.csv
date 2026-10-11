@@ -1,0 +1,7 @@
+Timestamp,User,Event,Source IP,Result
+09:00,buyer01,Login,10.0.0.12,Success
+09:02,buyer01,Login,203.0.113.25,Failure
+09:03,buyer01,Login,203.0.113.25,Failure
+09:04,buyer01,Login,203.0.113.25,Success
+09:07,buyer01,Supplier record viewed,203.0.113.25,Success
+09:10,buyer01,Bank details modified,203.0.113.25,Success

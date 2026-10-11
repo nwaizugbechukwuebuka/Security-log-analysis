@@ -1,0 +1,4 @@
+Timestamp,User,Event,Source IP,Result,Severity,Detection Rule,Investigation Recommendation
+2000-01-01T09:03:00Z,buyer01,Login,203.0.113.25,Failure,Medium,Repeated Failed Logins,"Review authentication records, verify the user's identity, and investigate the source IP."
+2000-01-01T09:04:00Z,buyer01,Login,203.0.113.25,Success,High,Successful Login After Repeated Failures,"Verify whether the successful login was authorized. Review MFA records, session activity, and account access history."
+2000-01-01T09:10:00Z,buyer01,Bank details modified,203.0.113.25,Success,Critical,Sensitive Activity After Suspicious Login,Verify the sensitive change with the authorized account owner. Preserve audit records and follow incident response procedures.
